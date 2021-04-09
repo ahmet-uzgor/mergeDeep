@@ -4,7 +4,7 @@ const { customMerge } = require('../mergeObjects');
 // this test is written to test all edge cases and functionality of customMerge function
 describe('test of all edge cases for cutomMerge function', () => {
     it('if both given parameters are empty ,it throws ReferenceError', (done) => {
-        expect(customMerge).to.throw(ReferenceError);
+        expect(()=> { customMerge() }).to.throw(ReferenceError);
         done();
     });
 
