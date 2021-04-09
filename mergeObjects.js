@@ -36,10 +36,11 @@ function concatArray(arr1, arr2) {
     return concatWithoutDuplicate;
 }
 
-function customMerge(obj1, obj2) {
-    if (!obj1 && !obj2) throw new ReferenceError('given paramters are empty or undefined')
+ const customMerge = (obj1, obj2) => {
+    if (!obj1 && !obj2) throw new ReferenceError('given paramters both are empty or undefined');
+    if (!obj1 || !obj2) (obj1)?obj2={}:obj1={}
     if (obj1.constructor !== Object || obj2.constructor !== Object) throw new TypeError('given parameters are not an object')
-
+    
     let mergedObject = {}
     if (Object.keys(obj1).length < 1 && Object.keys(obj2).length < 1) return mergedObject;
     
@@ -61,4 +62,4 @@ function customMerge(obj1, obj2) {
     return mergedObject;
 }
 
-console.log(customMerge(obj1, obj2));
+module.exports = { customMerge }
