@@ -1,36 +1,7 @@
-const obj1 = {
-    a: true,
-    b: {
-        b1: true,
-        b2: "foo-bar",
-        b3: [
-            "foo",
-            "bar"
-        ],
-        b4: () =>{},
-    },
-    c: [
-        "c1",
-        "c2",
-    ],
-};
-const obj2 = {
-    b: {
-        b1: false,
-        b3: [
-            "congo"
-        ],
-    },
-    c: [
-        "c2",
-        "c3"
-    ],
-};
-
 // const a1 = { arr1: [1, 2, 3], c : () => {}, arr3: ['2', 'a'], k: Symbol('X'), f: '2' };
 // const a2 = { arr1: [2, 3, 4, 5], d: () => {}, f: 3 };
 
-function concatArray(arr1, arr2) {
+function concatArray(arr1, arr2) { // it merge both given array and filters duplicates
     let concat = [...arr1, ...arr2];
     const concatWithoutDuplicate = concat.filter((item, index) => concat.indexOf(item) === index);
     return concatWithoutDuplicate;
@@ -38,7 +9,7 @@ function concatArray(arr1, arr2) {
 
  const customMerge = (obj1, obj2) => {
     if (!obj1 && !obj2) throw new ReferenceError('given paramters both are empty or undefined');
-    if (!obj1 || !obj2) (obj1)?obj2={}:obj1={}
+    if (!obj1 || !obj2) (obj1)?obj2={}:obj1={} // if one of the given parameter is empty it assign empty object to empty param tok continue process
     if (obj1.constructor !== Object || obj2.constructor !== Object) throw new TypeError('given parameters are not an object')
     
     let mergedObject = {}
